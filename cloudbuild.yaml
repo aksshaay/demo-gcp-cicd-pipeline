@@ -1,13 +1,13 @@
 steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/dulcet-antler-363111/python-app', '.']
+  args: ['build', '-t', 'gcr.io/rock-partition-363003/python-application', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/dulcet-antler-363111/python-app']
+  args: ['push', 'gcr.io/rock-partition-363003/python-application']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   entrypoint: gcloud
-  args: ['run', 'deploy', 'python-app', '--image', 'gcr.io/dulcet-antler-363111/python-app', '--region', 'us-central1', '--platform', 'managed','--port','80']
+  args: ['run', 'deploy', 'python-application', '--image', 'gcr.io/rock-partition-363003/python-application', '--region', 'us-central1', '--platform', 'managed','--port','80']
 images:
-- gcr.io/dulcet-antler-363111/python-app
+- gcr.io/rock-partition-363003/python-application
